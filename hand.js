@@ -16,29 +16,50 @@ let rightSide = rect2.right
 
 let links = document.querySelectorAll('a')
 let underline = document.querySelectorAll('u')
+let socialMedia = document.querySelectorAll('section.socialmedia div')
+let button = document.querySelectorAll('section.button')
+
+let popup = document.querySelector('div.popup')
+
+
 
 function setup() {
   createCanvas(width, height);
   smooth();
   hand = loadImage("assets/hand.png");
+  let mousex = mouseX
+  let mousey = mouseY
 }
 
 function draw() {
   clear();
+
+  links.forEach(tag => {
+    let rect = tag.getBoundingClientRect()
+    if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
+      mousex = rect.left
+      mousey = rect.top
+      console.log(mousex,mousey);
+      pushPop()
+    } else {
+      mousex = mouseX
+      mousey = mouseY
+      pushPop()
+    }
+  })
+
+
+
+
   strokeWeight(10);
   point(rightSide + 32, rectHeight / 2);
   //point(width/3*2, 20);
   //point(mouseX, mouseY);
 
-  noFill();
-  strokeWeight(4);
-  beginShape();
-  vertex(rightSide + 32, rectHeight / 2);
-  quadraticVertex(width / 3 * 2, rectHeight / 2, mouseX, mouseY);
-  endShape();
 
-  let diffX = (width / 3 * 2) - mouseX;
-  let diffY = mouseY - 20;
+
+  let diffX = (width / 3 * 2) - mousex;
+  let diffY = mousey - 20;
 
   angle = Math.atan2(diffY, diffX)
 
@@ -49,17 +70,16 @@ function draw() {
   colorChange()
 }
 
-socialMedia.forEach(tag => {
-  this.addEventListener("mouseMoved()", function() {
-    tag.style.color = "#35AC7D"
-    console.log("hello");
-  })
-})
-
 function pushPop() {
+  noFill();
+  strokeWeight(4);
+  beginShape();
+  vertex(rightSide + 32, rectHeight / 2);
+  quadraticVertex(width / 3 * 2, rectHeight / 2, mousex, mousey);
+  endShape();
   push()
   angleMode(RADIANS)
-  translate(mouseX, mouseY)
+  translate(mousex, mousey)
   rotate(-angle + radians(90));
   image(hand, -30, -30);
   pop()
@@ -68,26 +88,53 @@ function pushPop() {
 
 
 function colorChange() {
+  button.forEach(tag => {
+    let rect = tag.getBoundingClientRect()
+    if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
+      tag.classList.add("jiggle")
+      //console.log(tag.classList)
+    } else {
+      tag.classList.remove("jiggle")
+      popup.style.backgroundImage = "url('')"
+    }
+  })
+  socialMedia.forEach(tag => {
+    let rect = tag.getBoundingClientRect()
+    if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
+      tag.classList.add("jiggle")
+      //console.log(tag.classList)
+    } else {
+      tag.classList.remove("jiggle")
+    }
+  })
+
   links.forEach(tag => {
     let rect = tag.getBoundingClientRect()
     if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
       tag.style.color = "#E7511C"
       tag.style.textDecorationColor = "#E7511C"
-      image(hand, rect.left - 40, rect.top - 100);
+      //console.log(tag.classList)
     } else {
-      pushPop()
       tag.style.color = "black"
+
     }
   })
+
+
   underline.forEach(tag => {
     let rect = tag.getBoundingClientRect()
     if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
       tag.style.color = "#35AC7D"
       tag.style.textDecorationColor = "#35AC7D"
-
+      // var img = document.createElement('img')
+      // img.src = "assets/rock.png"
+      // var src = document.getElementById("popup")
+      // src.appendChild(img)
+      popup.style.backgroundImage = "url('assets/rock.png')"
     } else {
-      pushPop()
+      //popup.style.backgroundImage = "url('')"
       tag.style.color = "black"
+
     }
   })
 
