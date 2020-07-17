@@ -76,6 +76,7 @@ section.hero{
   justify-content: space-around;
   align-items: center;
   height: 100vh;
+  //background-color: blue;
 }
 section.hero section.herotxt{
   margin-left: 122px;
@@ -93,8 +94,17 @@ section.hero section.button{
 
 a{
   color: black;
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
+  //animation: shake 0.5s;
+  //animation-iteration-count: infinite;
+}
+
+section.arrow{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 5vh;
 }
 
 .jiggle{
