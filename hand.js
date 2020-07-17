@@ -130,7 +130,17 @@ function colorChange() {
       // img.src = "assets/rock.png"
       // var src = document.getElementById("popup")
       // src.appendChild(img)
-      popup.style.backgroundImage = "url('assets/rock.png')"
+      let face
+      if (tag.id == "Lee") {
+        face = "url('assets/lee.png')"
+      }
+      if (tag.id == "Maya") {
+        face = "url('assets/maya.png')"
+      }
+      if (tag.id == "Caleb") {
+        face = "url('assets/caleb.png')"
+      }
+      popup.style.backgroundImage = face
     } else {
       //popup.style.backgroundImage = "url('')"
       tag.style.color = "black"
