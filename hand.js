@@ -1,6 +1,6 @@
 let width = window.innerWidth
 let height = window.innerHeight
-let hand
+let hand = document.querySelector('div.hand')
 let angle
 
 let body = document.querySelector('body')
@@ -23,10 +23,11 @@ let popup = document.querySelector('div.popup')
 
 
 
+
 function setup() {
   createCanvas(width, height);
   smooth();
-  hand = loadImage("assets/hand.png");
+//  hand = createImg('assets/hand.png','hand')
   let mousex = mouseX
   let mousey = mouseY
 }
@@ -37,8 +38,8 @@ function draw() {
   links.forEach(tag => {
     let rect = tag.getBoundingClientRect()
     if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
-      mousex = rect.left
-      mousey = rect.top
+      //mousex = rect.left
+      //mousey = rect.top
       console.log(mousex,mousey);
       pushPop()
     } else {
@@ -47,9 +48,6 @@ function draw() {
       pushPop()
     }
   })
-
-
-
 
   strokeWeight(10);
   point(rightSide + 32, rectHeight / 2);
@@ -77,12 +75,14 @@ function pushPop() {
   vertex(rightSide + 32, rectHeight / 2);
   quadraticVertex(width / 3 * 2, rectHeight / 2, mousex, mousey);
   endShape();
-  push()
-  angleMode(RADIANS)
-  translate(mousex, mousey)
-  rotate(-angle + radians(90));
-  image(hand, -30, -30);
-  pop()
+  hand.style.transform = `translate(${mousex}px,${mousey}px)`
+  // push()
+  // angleMode(RADIANS)
+  // translate(mousex, mousey)
+  // rotate(-angle + radians(90));
+  // image(hand, -30, -30);
+  //hand.position(mouseX-50,mouseY-20,'fixed')
+  //pop()
 }
 
 
@@ -147,6 +147,23 @@ function colorChange() {
 
     }
   })
-
-
 }
+
+// window.addEventListener('resize', function(){
+//   width = window.innerWidth
+//   height = window.innerHeight
+//   console.log("resized");
+// })
+//
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+// function moveMouse(e){
+//   const x = e.clientX
+//   const y = e.clientY
+//
+//   hand.style.transform = `translate(${x-31}px,${y-20}px,)`
+// }
+//
+// document.addEventListener("mousemove", moveMouse())

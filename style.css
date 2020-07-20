@@ -17,8 +17,8 @@
 body{
   font-family: stratos;
   margin: 0;
-  //cursor: none;
-  z-index: 2;
+  //cursor: url(assets/hand.png) 31 25, auto;
+  //z-index: 2;
 }
 
 header{
@@ -29,14 +29,14 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 header section.title{
-  font-size: 64px;
+  font-size: 5.5vw;
 }
 header section.subtitle{
-  font-size: 32px;
+  font-size: 2.5vw;
 }
 header section.line{
   /* border-bottom: solid 1px;
@@ -72,6 +72,7 @@ div.popup{
 } */
 
 section.hero{
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -79,17 +80,19 @@ section.hero{
   //background-color: blue;
 }
 section.hero section.herotxt{
-  margin-left: 122px;
-  margin-right:122px;
-  font-size: 32px;
+  margin-left: 10vw;
+  margin-right:10vw;
+  font-size: 2.3vw;
 }
 section.hero section.button{
   margin-right: 122px;
   //display: flex;
   white-space: nowrap;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1.7vw;
   text-decoration: underline;
+  position: relative;
+  z-index: 10;
 }
 
 a{
@@ -98,13 +101,22 @@ a{
   //animation-iteration-count: infinite;
 }
 
+a:hover{
+  //cursor: inherit;
+}
+
+div.hand{
+  position: fixed;
+  //z-index: 20;
+}
+
 section.arrow{
   position: absolute;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 5vh;
+  bottom: 2vw;
   z-index: 4;
 }
 
@@ -121,32 +133,80 @@ section.team{
   height: 70vh;
 }
 section.team section.ourteam{
-  margin-left: 122px;
-  margin-right:122px;
-  font-size: 32px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  font-size: 2.3vw;
 }
 section.team section.button{
   margin-left: 122px;
   //display: flex;
   white-space: nowrap;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1.9vw;
   text-decoration: underline;
+  position: relative;
+  z-index: 10;
 }
 
 section.socialmedia{
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin-left: 32px;
   margin-right: 32px;
-  font-size: 64px;
+  font-size: 5.5vw;
   text-decoration: underline;
+  z-index: 1;
+}
+
+section.socialmedia a:hover{
+//cursor: inherit;
 }
 
 canvas{
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 800px) {
+  section.hero{
+    flex-direction: column;
+    justify-content: center;
+  }
+  section.hero section.button{
+    margin-right: 0px;
+    margin-top: 5vw;
+    font-size: 3vw;
+  }
+  section.hero section.herotxt{
+    font-size: 4vw;
+  }
+  section.team{
+    flex-direction: column;
+    justify-content: center;
+  }
+  section.team section.ourteam{
+    font-size: 4vw;
+  }
+  section.team section.button{
+    margin: 0px;
+    margin-top: 5vw;
+    font-size: 3vw;
+  }
+
+  section.arrow{
+    bottom: 1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  section.arrow{
+    bottom: 2vw;
+  }
+  section.hero section.herotxt{
+    font-size: 4.5vw;
+  }
+  section.team section.ourteam{
+    font-size: 4.5vw;
+  }
 }
