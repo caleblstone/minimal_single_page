@@ -1,7 +1,7 @@
-let arrow = document.querySelector('section.arrow a')
+let arrow = document.querySelector('section.hero section.arrow a')
 
 arrow.addEventListener("click", function(){
-  document.querySelector('section.socialmedia').scrollIntoView({ 
+  document.querySelector('section.socialmedia').scrollIntoView({
   behavior: 'smooth'
   });
 })

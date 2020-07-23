@@ -1,6 +1,6 @@
 let width = window.innerWidth
 let height = window.innerHeight
-let hand = document.querySelector('div.hand')
+//let hand = document.querySelector('div.hand')
 let angle
 
 let body = document.querySelector('body')
@@ -9,10 +9,14 @@ let line = document.querySelector('header')
 let rect = line.getBoundingClientRect()
 let rectHeight = rect.height
 
+
+
 let title = document.querySelector('header section.title')
 let subtitle = document.querySelector('header section.subtitle')
 let rect2 = title.getBoundingClientRect()
 let rightSide = rect2.right
+
+
 
 let links = document.querySelectorAll('a')
 let underline = document.querySelectorAll('u')
@@ -25,7 +29,10 @@ let popup = document.querySelector('div.popup')
 
 
 function setup() {
+
   createCanvas(width, height);
+  console.log(rectHeight);
+  console.log(rightSide);
   smooth();
 //  hand = createImg('assets/hand.png','hand')
   let mousex = mouseX
@@ -34,6 +41,8 @@ function setup() {
 
 function draw() {
   clear();
+
+
 
   links.forEach(tag => {
     let rect = tag.getBoundingClientRect()
@@ -63,8 +72,6 @@ function draw() {
 
 
 
-
-
   colorChange()
 }
 
@@ -73,9 +80,10 @@ function pushPop() {
   strokeWeight(4);
   beginShape();
   vertex(rightSide + 32, rectHeight / 2);
+  console.log("rending at" + rectHeight + rightSide);
   quadraticVertex(width / 3 * 2, rectHeight / 2, mousex, mousey);
   endShape();
-  hand.style.transform = `translate(${mousex}px,${mousey}px)`
+  //hand.style.transform = `translate(${mousex}px,${mousey}px)`
   // push()
   // angleMode(RADIANS)
   // translate(mousex, mousey)
@@ -89,6 +97,10 @@ function pushPop() {
 
 function colorChange() {
   button.forEach(tag => {
+    if (window.innerWidth < 600) {
+      tag.style.color = "#E7511C"
+      tag.style.textDecorationColor = "#E7511C"
+    }
     let rect = tag.getBoundingClientRect()
     if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
       tag.classList.add("jiggle")
@@ -110,12 +122,17 @@ function colorChange() {
 
   links.forEach(tag => {
     let rect = tag.getBoundingClientRect()
+
     if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
       tag.style.color = "#E7511C"
       tag.style.textDecorationColor = "#E7511C"
       //console.log(tag.classList)
     } else {
-      tag.style.color = "black"
+        if (window.innerWidth < 600) {
+
+        } else {
+          tag.style.color = "black"
+        }
 
     }
   })
