@@ -319,3 +319,8 @@ canvas{
     right: 0px;
   }
 }
+@media (hover: none) {
+    canvas{
+      display: none;
+    }
+}
