@@ -20,6 +20,73 @@ body{
   cursor: url(assets/hand1.png) 31 25, auto;
   //z-index: 2;
 }
+section.signup{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: auto;
+  display: none;
+  z-index: 30;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255, .9);
+}
+div.back{
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 4vw;
+  padding-left: 2vw;
+}
+div.back:hover{
+  color: #E7511C;
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+label{
+  font-family: stratos;
+  font-size: 5.5vw;
+}
+div.mc-field-group{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input.email{
+  border: none;
+  border-bottom: 3px solid black;
+  width: 90vw;
+  outline: none;
+  background-color: rgba(0,0,0,0);
+  font-family: stratos;
+  font-size: 5.5vw;
+  cursor: inherit;
+}
+div.clear{
+  //background-color: blue;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input.button{
+  margin-top: 10vh;
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,0);
+  //background-color: red;
+  font-family: stratos;
+  font-size: 4vw;
+  text-decoration: underline;
+  cursor: inherit;
+}
+
+input.button:hover{
+  color: #E7511C;
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
 
 div.computer img{
   /* position: absolute;
@@ -133,14 +200,31 @@ section.hero section.herotxt{
   margin-right:10vw;
   font-size: 2.3vw;
 }
+
+section.herobut{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //background-color: blue;
+  margin-right: 3vw;
+}
+
+section.herobut span{
+  font-size: 2.5vw;
+  display: inline;
+  margin-bottom: 2vw;
+}
+
 section.hero section.button{
-  margin-right: 10vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
   //display: flex;
   white-space: nowrap;
-  justify-content: center;
+  //justify-content: center;
   font-size: 1.7vw;
   text-decoration: underline;
-  position: relative;
+  //position: relative;
   z-index: 10;
 }
 
@@ -279,6 +363,15 @@ canvas{
 @media screen and (max-width: 600px) {
   body{
   //  background-color: #FECC2F;
+  }
+  div.back{
+    font-size: 10vw;
+  }
+  input.button{
+    font-size: 7vw;
+  }
+  input.email{
+    font-size: 7vw;
   }
   div.dial img{
     top: 90vh;

@@ -31,8 +31,8 @@ let popup = document.querySelector('div.popup')
 function setup() {
 
   createCanvas(width, height);
-  console.log(rectHeight);
-  console.log(rightSide);
+  // console.log(rectHeight);
+  // console.log(rightSide);
   smooth();
 //  hand = createImg('assets/hand.png','hand')
   let mousex = mouseX
@@ -49,7 +49,7 @@ function draw() {
     if (mouseX > rect.left && mouseX < rect.right && mouseY < rect.bottom && mouseY > rect.top) {
       //mousex = rect.left
       //mousey = rect.top
-      console.log(mousex,mousey);
+      //console.log(mousex,mousey);
       pushPop()
     } else {
       mousex = mouseX
@@ -80,7 +80,7 @@ function pushPop() {
   strokeWeight(4);
   beginShape();
   vertex(rightSide + 32, rectHeight / 2);
-  console.log("rending at" + rectHeight + rightSide);
+  //console.log("rending at" + rectHeight + rightSide);
   quadraticVertex(width / 3 * 2, rectHeight / 2, mousex, mousey);
   endShape();
   //hand.style.transform = `translate(${mousex}px,${mousey}px)`
