@@ -254,8 +254,13 @@ section.arrow{
 }
 
 .jiggle{
-  animation: shake 0.5s;
+  animation: shake .5s;
   animation-iteration-count: infinite;
+}
+
+section.comingsoon{
+  display: none;
+  z-index: 20;
 }
 
 section.team{
@@ -304,6 +309,18 @@ canvas{
 }
 
 @media screen and (max-width: 800px) {
+  .jiggle{
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+  }
+  div.back:hover{
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+  }
+  input.button:hover{
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+  }
   div.computer img{
     max-width: 75%;
     top: 10vh;
@@ -327,6 +344,15 @@ canvas{
   section.hero section.herotxt{
     font-size: 4vw;
   }
+  section.comingsoon{
+    font-size: 10vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  section.herobut span{
+    display: none;
+  }
   section.team{
     flex-direction: column;
     justify-content: center;
@@ -348,7 +374,7 @@ canvas{
     bottom: 1vw;
   }
   section.button{
-    animation: shake 0.5s;
+    animation: shake 1s;
     animation-iteration-count: infinite;
   }
 
